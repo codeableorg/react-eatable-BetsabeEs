@@ -2,6 +2,15 @@ import { useState } from 'react'
 import Input from '../components/Input';
 import { Form } from '../components/Form/Form';
 import { createProducts } from '../services/product-service';
+import styled from "@emotion/styled";
+
+    const Button = styled.button`
+    width: 280px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #FA4A0C;
+    color: white;
+    `;
 
 export const CreateProduct = () => {
     const [formData, setFormData] = useState({
@@ -79,9 +88,9 @@ export const CreateProduct = () => {
                     label="picture_url"
                     />
                 </Form>
-                <button type="submit">
+                <Button type="submit">
                     Create
-                </button>
+                </Button>
             </form>
         </div>
     </div>
