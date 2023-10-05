@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from "@emotion/styled";
-import { getProducts } from '../service/product-service';
+import { getProducts } from '../services/product-service';
 
 const DishContainer = styled.div`
   display: flex;
