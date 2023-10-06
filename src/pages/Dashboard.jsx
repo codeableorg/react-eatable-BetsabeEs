@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from "@emotion/styled";
 import { getProducts } from '../services/product-service';
+import { LinkOptions } from '../components/LinkOptions';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../components/Button/Button';
 
 const DishContainer = styled.div`
   display: flex;
@@ -30,36 +33,34 @@ const DishContainer = styled.div`
     color: #fa4a0c;
   }
 `;
+
+
 const Dashboard = () => {
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getProducts().then((product) => setData(product));
     }, []); 
-    /* useEffect(() => {
-        getEatable()
-          .then((response) => {
-            setData(response);
-            const uniqueCategories = [
-              ...new Set(response.map((dish) => dish.category)),
-            ];
-            setCategories(uniqueCategories);
-          })
-          .catch((err) => console.error(err));  
-    }, []); */  
-
+    /* function showEditPage(id){
+      navigate()
+    } */ 
   return (
     <div>
         <h1>Products Dashboard</h1>
-        <DishContainer>
-            {data.map((dish) => (
-                <div key={dish.id}>
-                    <img src={dish.picture_url} alt={dish.name} />
-                    <p>{dish.name}</p>
-                    <p>${dish.price}</p>
-                </div>
-            ))}
-        </DishContainer>
+        <div>
+          <DishContainer>
+              {data.map((dish) => (
+                  <div key={dish.id}>
+                      <img src={dish.picture_url} alt={dish.name} />
+                      <p>{dish.name}</p>
+                      <p>${dish.price}</p>
+                      <LinkOptions />
+                  </div>
+              ))}
+          </DishContainer>
+        </div>
+        
     </div>   
   )
 }
