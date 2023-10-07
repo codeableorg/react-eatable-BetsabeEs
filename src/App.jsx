@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { CreateProduct } from './pages/CreateProduct'
 import Dashboard from './pages/Dashboard'
 import { EditProduct } from './pages/EditProduct'
+import { ShowProduct } from './pages/ShowProduct'
 
 function App() {
 
@@ -19,8 +20,9 @@ function App() {
             <Dashboard/>
             }
           />
-          <Route path="products/edit" element={<EditProduct/>} />
-          <Route path="products/create" element={<CreateProduct/>} />
+          <Route path="/:id/edit" element={<EditProduct/>} />
+          <Route path="create" element={<CreateProduct/>} /> 
+          <Route path="/:id/show" element={<ShowProduct/>} /> 
         </Route>
       </Routes>
     </div>

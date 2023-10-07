@@ -27,16 +27,14 @@ export const LinkOptions = () => {
     const style = { color: "#FA4A0C", fontSize: "1.5em",background:"white" }
   return (
     <>
-        <StyledFrame>
-            <div>
-                {/* <img src={iconState.profile} alt="profile icon" /> */}
-                <OptionButton onClick={()=> navigate("edit")} > <RiEditBoxFill style={style}/> </OptionButton>
-            </div>
-            <div>
-                <OptionButton onClick={()=> navigate("")}> <RiDeleteBin6Fill style={style}/> </OptionButton>
-                {/* <img src={iconState.search} alt="search icon" /> */}
-            </div>
-        </StyledFrame> 
+      <StyledFrame>
+          <div>
+              <OptionButton onClick={()=> navigate("edit")} > <RiEditBoxFill style={style}/> </OptionButton>
+          </div>
+          <div>
+              <OptionButton onClick={()=> navigate("")}> <RiDeleteBin6Fill style={style}/> </OptionButton>
+          </div>
+      </StyledFrame> 
     </>
   )
 }
