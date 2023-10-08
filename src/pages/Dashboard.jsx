@@ -99,7 +99,9 @@ const Dashboard = () => {
                           <Link to={`/${dish.id}/edit`}>
                             <RiEditBoxFill style={style}/>
                           </Link>
-                          <p><RiDeleteBin6Fill style={style}/></p>
+                          <Link to={`/${dish.id}/delete`}>
+                            <RiDeleteBin6Fill style={style}/>
+                          </Link>
                         </StyledFrame>
                     </div>
                 ))}
