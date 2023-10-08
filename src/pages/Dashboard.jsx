@@ -78,10 +78,7 @@ const Dashboard = () => {
     const style = { color: "#FA4A0C", fontSize: "16px",background:"white"}
     useEffect(() => {
         getProducts().then((product) => setData(product));
-    }, []); 
-    /* function showEditPage(id){
-      navigate()
-    } */ 
+    }, []);  
   return (
     <div>
         <Container>

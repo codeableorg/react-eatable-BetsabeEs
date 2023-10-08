@@ -43,8 +43,6 @@ export const EditProduct = () => {
     .catch((err) => console.error(err));   
   }, [id]);
 
-  //const {name , price , description , category , picture_url} = formData;
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     const newValues = { ...formData, [name]: value };

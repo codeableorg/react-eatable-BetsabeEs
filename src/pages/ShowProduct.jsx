@@ -79,7 +79,6 @@ export const ShowProduct = () => {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const {name,price,description,category,picture_url} = formData;
-  //const style = { color: "#FA4A0C", fontSize: "1.5em",background:"white",fontSize:"30px" }
 
   useEffect(() => {
     showProducts(id)       
@@ -87,16 +86,6 @@ export const ShowProduct = () => {
     })       
     .catch((err) => console.error(err));   
   }, [id]);
-
-  /* const handleChange = (event) => {
-    const { name, value } = event.target;
-    const newValues = { ...formData, [name]: value };
-    setFormData(newValues);
-    console.log(newValues);
-  };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  }; */
   return (
     <>
       <Container>
