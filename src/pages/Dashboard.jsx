@@ -78,10 +78,7 @@ const Dashboard = () => {
     const style = { color: "#FA4A0C", fontSize: "16px",background:"white"}
     useEffect(() => {
         getProducts().then((product) => setData(product));
-    }, []); 
-    /* function showEditPage(id){
-      navigate()
-    } */ 
+    }, []);  
   return (
     <div>
         <Container>
@@ -99,7 +96,9 @@ const Dashboard = () => {
                           <Link to={`/${dish.id}/edit`}>
                             <RiEditBoxFill style={style}/>
                           </Link>
-                          <p><RiDeleteBin6Fill style={style}/></p>
+                          <Link to={`/${dish.id}/delete`}>
+                            <RiDeleteBin6Fill style={style}/>
+                          </Link>
                         </StyledFrame>
                     </div>
                 ))}

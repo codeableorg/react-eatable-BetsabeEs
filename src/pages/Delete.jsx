@@ -1,9 +1,21 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
 
 export const Delete = () => {
   const {id} = useParams();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    deleteProducts(id)
+    console.log("Producto eliminado")
+  };
   return (
-    <div>Delete</div>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <Link to="/products">
+        </Link>
+      </form>
+    </div>
   )
 }

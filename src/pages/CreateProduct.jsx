@@ -66,9 +66,6 @@ export const CreateProduct = () => {
         createProducts(formData)
         .then(product => console.log(product))
         .catch(error => console.log(error));
-
-        //console.log(formData);
-        //signup(formData);
       };
     
       

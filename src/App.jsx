@@ -3,6 +3,7 @@ import { CreateProduct } from './pages/CreateProduct'
 import Dashboard from './pages/Dashboard'
 import { EditProduct } from './pages/EditProduct'
 import { ShowProduct } from './pages/ShowProduct'
+import { Delete } from './pages/Delete'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             }
           />
           <Route path="/:id/edit" element={<EditProduct/>} />
+          <Route path="/:id/delete" element={<Delete/>} />
           <Route path="create" element={<CreateProduct/>} /> 
           <Route path="/:id/show" element={<ShowProduct/>} /> 
         </Route>
