@@ -3,15 +3,33 @@ import Input from '../components/Input';
 import { Form } from '../components/Form/Form';
 import { createProducts } from '../services/product-service';
 import styled from "@emotion/styled";
-import { Button } from '../components/Button/Button';
+import "../error.css";
+const Container = styled.div`
+  background-color: #F6F6F9;
 
-    /* const Button = styled.button`
-    width: 280px;
-    height: 50px;
-    border-radius: 30px;
-    background-color: #FA4A0C;
-    color: white;
-    `; */
+  h1{
+    text-align: center;
+    margin-top:48px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-family:"Source Sans Pro";
+  }
+  }
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  }
+`;
+const Button = styled.button`
+width: 280px;
+height: 50px;
+border-radius: 30px;
+background-color: #FA4A0C;
+color: white;
+`;
 
 export const CreateProduct = () => {
     const [formData, setFormData] = useState({
@@ -21,22 +39,42 @@ export const CreateProduct = () => {
         category: "",
         picture_url:""
     });
+    const [errors, setErrors] = useState({});
+    function validate(values) {
+        console.log(values);
+        const errors= {};
+        if(values.name === "") {
+          errors.name = "Name is required";
+        }
+        if(values.price === "") {
+            errors.price = "Price is required";
+          }
+        return errors;
+    }
+    const handleChange = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        //setFormData({ ...formData, [name]: value });
+        const newValues = {...formData, [name]: value };    
+        setFormData(newValues);
+        const errors = validate(newValues);
+        setErrors(errors);
+
+      };
     const handleSubmit = (event) => {
         event.preventDefault();
         createProducts(formData)
         .then(product => console.log(product))
         .catch(error => console.log(error));
+
         //console.log(formData);
         //signup(formData);
       };
     
-      const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
-      };
+      
     return (
     <div>
-        <div className="centerdiv">
+        <Container>
             <h1>Create Product</h1>
             <form onSubmit={handleSubmit}>
                 <Form>
@@ -48,6 +86,7 @@ export const CreateProduct = () => {
                     onChange={handleChange}
                     label="Name"
                     />
+                {errors.name && <p className="error-msg">{errors.name}</p>}
                 </Form>
                 <Form>
                     <Input
@@ -89,12 +128,13 @@ export const CreateProduct = () => {
                     label="picture_url"
                     />
                 </Form>
+                <ButtonContainer>
                 <Button type="submit">
-                    Create
-                </Button>
+                        Create
+                    </Button>
+                </ButtonContainer>    
             </form>
-        </div>
+        </Container>
     </div>
     )
 }
-
