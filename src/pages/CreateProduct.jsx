@@ -3,16 +3,33 @@ import Input from '../components/Input';
 import { Form } from '../components/Form/Form';
 import { createProducts } from '../services/product-service';
 import styled from "@emotion/styled";
-import { Link } from 'react-router-dom';
 import "../error.css";
+const Container = styled.div`
+  background-color: #F6F6F9;
 
-    const Button = styled.button`
-    width: 280px;
-    height: 50px;
-    border-radius: 30px;
-    background-color: #FA4A0C;
-    color: white;
-    `;
+  h1{
+    text-align: center;
+    margin-top:48px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-family:"Source Sans Pro";
+  }
+  }
+`;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  }
+`;
+const Button = styled.button`
+width: 280px;
+height: 50px;
+border-radius: 30px;
+background-color: #FA4A0C;
+color: white;
+`;
 
 export const CreateProduct = () => {
     const [formData, setFormData] = useState({
@@ -57,7 +74,7 @@ export const CreateProduct = () => {
       
     return (
     <div>
-        <div className="centerdiv">
+        <Container>
             <h1>Create Product</h1>
             <form onSubmit={handleSubmit}>
                 <Form>
@@ -111,14 +128,13 @@ export const CreateProduct = () => {
                     label="picture_url"
                     />
                 </Form>
-                
-                    <Button type="submit">
+                <ButtonContainer>
+                <Button type="submit">
                         Create
                     </Button>
-                
-                
+                </ButtonContainer>    
             </form>
-        </div>
+        </Container>
     </div>
     )
 }

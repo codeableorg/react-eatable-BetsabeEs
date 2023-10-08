@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from "@emotion/styled";
 import { getProducts } from '../services/product-service';
-import { LinkOptions } from '../components/LinkOptions';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button/Button';
 import { RiEditBoxFill, RiDeleteBin6Fill} from 'react-icons/ri';
