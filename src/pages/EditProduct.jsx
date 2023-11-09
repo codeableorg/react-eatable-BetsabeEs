@@ -3,7 +3,7 @@ import Input from '../components/Input';
 import { Form } from '../components/Form/Form';
 import { Button } from '../components/Button/Button';
 import { useNavigate, useParams } from 'react-router-dom';
-import { showProducts } from '../services/product-service';
+import { showProducts, updateProducts } from '../services/product-service';
 import styled from "@emotion/styled";
 
 const Container = styled.div`
@@ -116,7 +116,7 @@ export const EditProduct = () => {
               <Button type="submit">
                 Save
               </Button>
-            </ButtonContainer>                
+            </ButtonContainer>
           </form>
         </Container>
     </div>
